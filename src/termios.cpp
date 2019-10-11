@@ -69,7 +69,7 @@ static int baud_to_mask(int baud) {
 NAN_METHOD(Setattr) {
 	struct termios t;
 	Nan::HandleScope scope;
-	v8::Local<v8::Object> obj = info[2]->ToObject();
+	v8::Local<v8::Object> obj = Nan::To<v8::Object>(info[2]);
 	v8::Local<v8::String> iflag = Nan::New<v8::String>("iflag").ToLocalChecked();
 	v8::Local<v8::String> oflag = Nan::New<v8::String>("oflag").ToLocalChecked();
 	v8::Local<v8::String> cflag = Nan::New<v8::String>("cflag").ToLocalChecked();
